@@ -1,0 +1,14 @@
+# Các thư mục môi trường ảo
+venv/
+__pycache__/
+
+
+# Các thư mục dữ liệu lớn
+videos/
+checkpoints/
+
+# PyGame Learning Environment
+PyGame-Learning-Environment/
+
+# Các file log
+logs/
