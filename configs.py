@@ -65,7 +65,7 @@ class Config:
     # `# Tăng epsilon cuối cùng`: Ghi chú cho biết giá trị này (0.1) cao hơn giá trị trước đó (có thể là 0.05 hoặc 0.01),
     # nghĩa là agent sẽ duy trì mức độ khám phá cao hơn một chút về sau này.
 
-    EPSILON_DECAY = 50000               # Giảm tốc độ decay (huấn luyện nhanh hơn)
+    EPSILON_DECAY = 20000               # Giảm tốc độ decay (huấn luyện nhanh hơn)
     # Số lượng bước (steps) mà trong đó epsilon sẽ giảm dần từ `EPSILON_START` xuống `EPSILON_FINAL`. 
     # `# Giảm tốc độ decay`: Ghi chú này có vẻ hơi ngược. Một giá trị `EPSILON_DECAY` *nhỏ hơn* (như 50000 so với ví dụ 1 triệu) 
     # có nghĩa là epsilon giảm *nhanh hơn*, agent chuyển sang khai thác sớm hơn. Điều này có thể làm quá trình *có vẻ* 
@@ -75,7 +75,7 @@ class Config:
     # Cấu hình replay buffer
     # Comment: Nhóm các tham số liên quan đến bộ nhớ đệm kinh nghiệm (Experience Replay Buffer).
 
-    BUFFER_SIZE = 50000                 # Giảm kích thước buffer
+    BUFFER_SIZE = 10000                 # Giảm kích thước buffer
     # Kích thước tối đa của replay buffer (số lượng tuple kinh nghiệm `(state, action, reward, next_state, done)` có thể lưu trữ).
     # `# Giảm kích thước buffer`: Ghi chú này cho biết kích thước buffer (50k) nhỏ hơn giá trị trước đó (có thể là 100k, 200k hoặc 1 triệu). 
     # Buffer nhỏ hơn tiết kiệm bộ nhớ RAM nhưng có thể khiến agent "quên" các kinh nghiệm cũ nhanh hơn.
@@ -87,23 +87,23 @@ class Config:
     # Cấu hình huấn luyện
     # Comment: Nhóm các tham số liên quan đến vòng lặp huấn luyện chính.
 
-    TARGET_UPDATE = 500                 # Giảm số bước giữa mỗi lần cập nhật target network
+    TARGET_UPDATE = 1000                 # Giảm số bước giữa mỗi lần cập nhật target network
     # Tần suất (số bước huấn luyện) cập nhật trọng số của mạng target (target network). 
     # Trong DQN và Double DQN, mạng target được cập nhật định kỳ bằng cách sao chép trọng số từ mạng chính (online network).
     # `# Giảm số bước...`: Giá trị 500 nhỏ hơn các giá trị thường thấy khác (ví dụ: 1000, 10000). 
     # Cập nhật thường xuyên hơn có thể giúp hội tụ nhanh hơn nhưng cũng có thể gây mất ổn định.
 
-    TRAIN_STEPS = 500000                # Giảm tổng số bước huấn luyện
+    TRAIN_STEPS = 100000                # Giảm tổng số bước huấn luyện
     # Tổng số bước tương tác với môi trường (training steps) sẽ được thực hiện trong toàn bộ quá trình huấn luyện.
     # `# Giảm tổng số bước...`: 500k là một số lượng bước tương đối nhỏ cho các game Atari phức tạp (thường cần hàng triệu bước). 
     # Điều này có thể nhằm mục đích chạy thử nghiệm nhanh hoặc do giới hạn tài nguyên.
 
-    EVAL_INTERVAL = 5000                # Giảm khoảng cách giữa các lần đánh giá
+    EVAL_INTERVAL = 10000                # Giảm khoảng cách giữa các lần đánh giá
     # Tần suất (số bước huấn luyện) thực hiện việc đánh giá (evaluation) hiệu năng của agent. 
     # Trong quá trình đánh giá, agent thường chạy mà không có khám phá (epsilon nhỏ hoặc bằng 0) để đo lường hiệu năng thực tế.
     # `# Giảm khoảng cách...`: Đánh giá thường xuyên hơn (mỗi 5k bước) giúp theo dõi tiến trình học tốt hơn.
 
-    EVAL_EPISODES = 5                   # Số episode để đánh giá
+    EVAL_EPISODES = 3                # Số episode để đánh giá
     # Số lượng episode (lượt chơi hoàn chỉnh) sẽ được chạy trong mỗi lần đánh giá để tính toán điểm số trung bình. 
     # 5 episodes là một con số hợp lý để có ước lượng sơ bộ về hiệu năng.
     
