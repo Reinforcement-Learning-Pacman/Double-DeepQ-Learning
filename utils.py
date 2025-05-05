@@ -1,12 +1,13 @@
-# utils.py
 import numpy as np
 import os
 import torch
 import matplotlib.pyplot as plt
 import random
 from datetime import datetime
+from typing import List
 
-def set_seed(seed):
+
+def set_seed(seed: int) -> None:
     """Đặt seed cho tất cả các nguồn ngẫu nhiên"""
     random.seed(seed)
     np.random.seed(seed)
@@ -15,16 +16,20 @@ def set_seed(seed):
         torch.cuda.manual_seed(seed)
         torch.cuda.manual_seed_all(seed)
 
-def create_dirs(dirs):
+
+def create_dirs(dirs: List[str]) -> None:
     """Tạo các thư mục nếu chưa tồn tại"""
     for d in dirs:
         os.makedirs(d, exist_ok=True)
 
-def get_timestamp():
+
+def get_timestamp() -> str:
     """Lấy timestamp hiện tại"""
     return datetime.now().strftime("%Y%m%d_%H%M%S")
 
-def plot_rewards(episode_rewards, avg_rewards, window_size=100, filename='rewards_plot.png'):
+
+def plot_rewards(episode_rewards: List[float], avg_rewards: List[float], window_size: int = 100,
+                 filename: str = 'rewards_plot.png') -> None:
     """Vẽ đồ thị phần thưởng"""
     plt.figure(figsize=(10, 5))
     plt.plot(episode_rewards, alpha=0.5, label='Episode Reward')
@@ -37,31 +42,32 @@ def plot_rewards(episode_rewards, avg_rewards, window_size=100, filename='reward
     plt.savefig(filename)
     plt.close()
 
-def display_frames_as_gif(frames, filename='game.gif', fps=30):
+
+def display_frames_as_gif(frames: List[np.ndarray], filename: str = 'game.gif', fps: int = 30) -> None:
     """Lưu một chuỗi frame dưới dạng GIF"""
     from PIL import Image
-    import numpy as np
-    
+
     print(f"Attempting to save {len(frames)} frames to {filename}")
-    
+
     if len(frames) == 0:
         print("Error: No frames to save!")
         return
-    
+
     # Đảm bảo thư mục tồn tại
     os.makedirs(os.path.dirname(filename) if os.path.dirname(filename) else '.', exist_ok=True)
-    
+
     try:
         # Đảm bảo frames có định dạng đúng (uint8)
-        frames_np = [np.array(frame).astype(np.uint8) if frame is not None else np.zeros((84, 84, 3), dtype=np.uint8) for frame in frames]
+        frames_np = [np.array(frame).astype(np.uint8) if frame is not None else np.zeros((84, 84, 3), dtype=np.uint8)
+                     for frame in frames]
         frames_pil = [Image.fromarray(frame) for frame in frames_np]
-        
+
         # Lưu GIF
         frames_pil[0].save(
             filename,
             save_all=True,
             append_images=frames_pil[1:],
-            duration=1000/fps,
+            duration=1000 / fps,
             loop=0
         )
         print(f"Successfully saved GIF to {filename}")
