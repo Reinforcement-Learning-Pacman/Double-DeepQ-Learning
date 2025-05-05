@@ -13,5 +13,6 @@ PyGame-Learning-Environment/
 # Các file log
 logs/
 
-# IDEA config
+
 .idea
+introductionAI/
