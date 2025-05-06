@@ -9,22 +9,6 @@ import ale_py
 # Khi bạn import `ale_py`, các môi trường Atari tương ứng sẽ được "đăng ký" (register)
 # với Gymnasium, làm cho chúng có sẵn để sử dụng thông qua `gym.make()`.
 
-# if using gymnasium
-# Đây là một dòng comment (ghi chú), chỉ ra rằng dòng code tiếp theo (đã bị comment)
-# có thể liên quan hoặc cần thiết khi sử dụng thư viện Gymnasium.
-
-# import shimmy
-# Dòng này bị comment out (có dấu # ở đầu), nghĩa là nó sẽ không được thực thi.
-# `shimmy` là một thư viện tiện ích được thiết kế để cung cấp lớp tương thích (compatibility layer).
-# Mục đích chính của nó là giúp các môi trường được viết cho API cũ của `gym` (phiên bản trước 0.26)
-# có thể hoạt động được với API mới hơn của `gymnasium`. 
-# Ví dụ, API mới của `gymnasium` yêu cầu hàm `step()` trả về 5 giá trị 
-# (observation, reward, terminated, truncated, info), trong khi API cũ chỉ trả về 4 giá trị 
-# (observation, reward, done, info). `shimmy` có thể "bao bọc" (wrap) môi trường cũ 
-# để nó hoạt động theo chuẩn mới.
-# Trong trường hợp này, nó được comment out, có thể vì các môi trường Atari 
-# được cung cấp qua `ale_py` đã tương thích sẵn với `gymnasium`, hoặc 
-# đoạn code này chỉ nhằm mục đích liệt kê môi trường chứ chưa cần chạy một môi trường cũ cụ thể.
 
 import gymnasium as gym
 # Dòng này import thư viện `gymnasium` và đặt cho nó một bí danh (alias) là `gym`.

@@ -166,8 +166,6 @@ def display_frames_as_gif(frames, filename='game.gif', fps=30):
     # hoặc để giữ không gian tên (namespace) toàn cục sạch hơn. Tuy nhiên, thông thường
     # import được đặt ở đầu file. Cần đảm bảo đã cài Pillow (`pip install Pillow`).
 
-    import numpy as np
-    # Re-import NumPy (np). Điều này là không cần thiết nếu đã import ở đầu file, nhưng không gây hại.
 
     print(f"Attempting to save {len(frames)} frames to {filename}")
     # In thông báo cho biết hàm đang bắt đầu lưu GIF, số lượng frame và tên file.
