@@ -1,4 +1,3 @@
-# env.py
 import gymnasium as gym
 import numpy as np
 import cv2
@@ -66,12 +65,32 @@ class FrameProcessor:
 class PacmanEnv:
     """Môi trường wrapper cho Pacman"""
     
-    def __init__(self, render_mode=None):
-        if render_mode not in [None, 'human', 'rgb_array']:
-            raise ValueError("render_mode must be None, 'human', or 'rgb_array'")
-        self.env = gym.make(ENV_NAME, render_mode=render_mode)
-        self.frame_processor = FrameProcessor()
-        self.frame_stack = FrameStack(num_frames=NUM_FRAMES)
+    def __init__(self, env_name="Pacman-v0", render_mode=None, stack_frames=4):
+        """
+        Khởi tạo môi trường Pacman
+        
+        Args:
+            env_name: tên môi trường
+            render_mode: chế độ render
+            stack_frames: số frame để stack
+        """
+        # Khởi tạo môi trường gốc
+        self.env = gym.make(env_name, render_mode=render_mode)
+        
+        # Frame processor và stacker
+        self.processor = FrameProcessor(frame_size=(84, 84))
+        self.stacker = FrameStack(num_frames=stack_frames)
+        
+        # Lưu trữ không gian hành động và quan sát
+        self.action_space = self.env.action_space
+        
+        # Định nghĩa không gian quan sát mới sau khi stack frame
+        self.observation_space = gym.spaces.Box(
+            low=0, 
+            high=255,
+            shape=(stack_frames, 84, 84),
+            dtype=np.uint8
+        )
     
     def reset(self):
         """Reset môi trường"""
