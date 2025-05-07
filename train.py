@@ -81,7 +81,7 @@ def evaluate(env: PacmanEnv, agent: DoubleDQNAgent, num_episodes: int) -> float:
 
         total_rewards.append(total_reward)
 
-    # Tính phần thưởng trung bình
+    # avr reward base on total
     average_reward = np.mean(total_rewards)
     return float(average_reward) # cast từ numpy.float64 sang float
 
@@ -93,7 +93,7 @@ def main() -> None:
     # Đặt seed
     set_seed(args.seed)
 
-    # Tạo thư mục
+    # Create folder for saving
     timestamp = get_timestamp()
     save_dir = os.path.join(args.save_dir, timestamp)
     log_dir = os.path.join(args.log_dir, timestamp)
