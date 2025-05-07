@@ -32,35 +32,23 @@ class FrameStack:
         return np.array(self.frames)
 
 class FrameProcessor:
-    """Class xử lý frame"""
+    
     
     def __init__(self, frame_size=(84, 84)):
-        """
-        Khởi tạo frame processor
         
-        Args:
-            frame_size: kích thước frame sau khi resize
-        """
         self.frame_size = frame_size
     
     def process(self, frame):
-        """
-        Xử lý một framebatch-size
         
-        Args:
-            frame: array RGB
-            
-        Returns:
-            numpy array: frame đã được xử lý
-        """
-        # Chuyển thành grayscale
+       
         if len(frame.shape) == 3 and frame.shape[2] == 3:
             frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
         
         # Resize
         frame = cv2.resize(frame, self.frame_size, interpolation=cv2.INTER_AREA)
         
-        return frame
+        
+        return frame.astype(np.uint8)
 
 class PacmanEnv:
     """Môi trường wrapper cho Pacman"""
@@ -104,11 +92,15 @@ class PacmanEnv:
     def step(self, action):
         """Thực hiện một hành động trong môi trường"""
         obs, reward, terminated, truncated, info = self.env.step(action)
-        # Xử lý frame
+    
+        
+        shaped_reward = reward + 0.01
+    
+        
         processed_obs = self.processor.process(obs)
-        # Thêm frame mới vào stack
+        
         stacked_state = self.stacker.add(processed_obs)
-        return stacked_state, reward, terminated, truncated, info
+        return stacked_state, shaped_reward, terminated, truncated, info
     
     def render(self):
         """Render môi trường"""

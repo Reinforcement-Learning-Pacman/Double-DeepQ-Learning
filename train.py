@@ -64,26 +64,28 @@ def parse_args() -> argparse.Namespace:
 def evaluate(env: PacmanEnv, agent: DoubleDQNAgent, num_episodes: int) -> float:
     """Đánh giá agent trên một số episodes"""
     total_rewards = []
-
+    
     for _ in range(num_episodes):
         state, _ = env.reset()
         done = False
         truncated = False
         total_reward = 0
-
+        max_steps = 50000  # Tăng số bước tối đa
+        steps = 0
+        
         # Chơi một episode
-        while not (done or truncated):
+        while not (done or truncated) and steps < max_steps:
             action = agent.select_action(state, training=False)
             next_state, reward, done, truncated, _ = env.step(action)
-
+            
             total_reward += reward
             state = next_state
-
+            steps += 1
+            
         total_rewards.append(total_reward)
-
-    # avr reward base on total
+    
     average_reward = np.mean(total_rewards)
-    return float(average_reward) # cast từ numpy.float64 sang float
+    return float(average_reward)
 
 
 def main() -> None:

@@ -11,21 +11,21 @@ class Config:
     FRAME_SIZE = (84, 84)             
     
     #COnfig agent
-    LEARNING_RATE = 2.5e-4              
+    LEARNING_RATE = 1e-4              
     GAMMA = 0.99                        
     EPSILON_START = 1.0                 
-    EPSILON_FINAL = 0.1                 
-    EPSILON_DECAY = 20000               
+    EPSILON_FINAL = 0.01                 
+    EPSILON_DECAY = 100000               
     
     #Config buffer
     BUFFER_SIZE = 10000                 
     BATCH_SIZE = 32                     
     
     #Conf Train
-    TARGET_UPDATE = 1000                
-    TRAIN_STEPS = 100000                
-    EVAL_INTERVAL = 10000                
-    EVAL_EPISODES = 3                   
+    TARGET_UPDATE = 10000                
+    TRAIN_STEPS = 500000                
+    EVAL_INTERVAL = 50000                
+    EVAL_EPISODES = 5                   
         
     #save
     SAVE_DIR = "checkpoints"          

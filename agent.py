@@ -16,14 +16,14 @@ class DoubleDQNAgent:
             state_shape: Tuple[int, ...],
             n_actions: int,
             device: str,
-            learning_rate: float = 2.5e-4,
+            learning_rate: float = 1e-4,  
             gamma: float = 0.99,
             epsilon_start: float = 1.0,
-            epsilon_final: float = 0.1,
-            epsilon_decay: int = 50000,
-            buffer_size: int = 50000,
+            epsilon_final: float = 0.01,  
+            epsilon_decay: int = 100000,  
+            buffer_size: int = 100000,    
             batch_size: int = 32,
-            target_update: int = 500
+            target_update: int = 10000
     ) -> None:
         """Khởi tạo Double DQN Agent"""
         self.state_shape = state_shape
