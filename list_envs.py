@@ -1,7 +1,6 @@
 import gymnasium as gym
-import ale_py
 
-#Check if env exist in ale_py
+# Check if env exist in ale_py
 all_envs = gym.envs.registry.keys()
 
 atari_envs = [env_id for env_id in all_envs if env_id.startswith('ale_py:ALE/')]

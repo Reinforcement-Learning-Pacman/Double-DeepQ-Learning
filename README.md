@@ -8,7 +8,7 @@
     <img src="https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/03/pac-man-thumb.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Pacman Double DQN</h3>
+<h3 align="center">Pacman Double DQN</h3>
 
   <p align="center">
     Dự án huấn luyện AI chơi Pacman sử dụng Double Deep Q-Learning
@@ -51,13 +51,16 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
+
 ## Giới thiệu
 
 ![Pacman Screenshot][product-screenshot]
 
-Dự án này sử dụng thuật toán Double Deep Q-Learning Network (Double DQN) để huấn luyện agent chơi trò chơi Pacman. Double DQN là một phiên bản cải tiến của DQN giúp giảm thiểu hiện tượng overestimation bias trong học tăng cường.
+Dự án này sử dụng thuật toán Double Deep Q-Learning Network (Double DQN) để huấn luyện agent chơi trò chơi Pacman.
+Double DQN là một phiên bản cải tiến của DQN giúp giảm thiểu hiện tượng overestimation bias trong học tăng cường.
 
 Đặc điểm chính của dự án:
+
 * Sử dụng Double DQN để huấn luyện agent chơi Ms. Pacman
 * Xử lý frame hình và kỹ thuật frame stacking để tăng hiệu suất học tập
 * Theo dõi quá trình học thông qua Tensorboard
@@ -77,6 +80,7 @@ Dự án này sử dụng thuật toán Double Deep Q-Learning Network (Double D
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
+
 ## Bắt đầu
 
 Để thiết lập một bản sao của dự án này trên máy tính cục bộ của bạn, hãy làm theo các bước đơn giản sau.
@@ -109,6 +113,7 @@ Dự án này sử dụng thuật toán Double Deep Q-Learning Network (Double D
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
+
 ## Cách sử dụng
 
 ### Cấu trúc dự án
@@ -146,6 +151,7 @@ python main.py --mode train --args --env ale_py:ALE/MsPacman-v5 --lr 0.0001 --ga
 ```
 
 Các tham số chính:
+
 - `--env`: Tên môi trường Pacman (mặc định: "ale_py:ALE/MsPacman-v5")
 - `--lr`: Learning rate (mặc định: 2e-4)
 - `--gamma`: Hệ số discount (mặc định: 0.99)
@@ -167,6 +173,7 @@ python main.py --mode test --args --model-path checkpoints/timestamp/model_best.
 ```
 
 Tham số:
+
 - `--model-path`: Đường dẫn đến model đã lưu (bắt buộc)
 - `--episodes`: Số episode để chạy (mặc định: 10)
 - `--render`: Hiển thị gameplay (flag)
@@ -185,6 +192,7 @@ Sau đó, mở trình duyệt tại `http://localhost:6006`
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
+
 ## Lộ trình
 
 - [x] Xây dựng Double DQN Agent cơ bản
@@ -193,19 +201,22 @@ Sau đó, mở trình duyệt tại `http://localhost:6006`
 - [ ] Thử nghiệm với các biến thể khác của môi trường Pacman
 - [ ] Tối ưu hóa hyperparameters
 - [ ] Tích hợp và so sánh với các thuật toán khác
-  - [ ] Dueling DQN
-  - [ ] Prioritized Experience Replay
+    - [ ] Dueling DQN
+    - [ ] Prioritized Experience Replay
 
 [//]: # (Xem [open issues]&#40;https://github.com/username/pacman-double-dqn/issues&#41; để biết danh sách đầy đủ các tính năng đề xuất &#40;và các vấn đề đã biết&#41;.)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
+
 ## Đóng góp
 
-Đóng góp là điều làm cho cộng đồng mã nguồn mở trở thành một nơi tuyệt vời để học hỏi, truyền cảm hứng và sáng tạo. Mọi đóng góp của bạn đều được **trân trọng**.
+Đóng góp là điều làm cho cộng đồng mã nguồn mở trở thành một nơi tuyệt vời để học hỏi, truyền cảm hứng và sáng tạo. Mọi
+đóng góp của bạn đều được **trân trọng**.
 
-Nếu bạn có đề xuất để cải thiện dự án, hãy fork repository và tạo pull request. Bạn cũng có thể mở một issue với tag "enhancement".
+Nếu bạn có đề xuất để cải thiện dự án, hãy fork repository và tạo pull request. Bạn cũng có thể mở một issue với tag "
+enhancement".
 Đừng quên cho dự án một ngôi sao! Cảm ơn bạn rất nhiều!
 
 1. Fork dự án
@@ -217,6 +228,7 @@ Nếu bạn có đề xuất để cải thiện dự án, hãy fork repository 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
+
 ## Giấy phép
 
 Phân phối theo Giấy phép MIT. Xem `LICENSE` để biết thêm thông tin.
@@ -224,6 +236,7 @@ Phân phối theo Giấy phép MIT. Xem `LICENSE` để biết thêm thông tin.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
+
 ## Liên hệ
 
 techshopprojectteam@gmail.com
@@ -231,6 +244,7 @@ techshopprojectteam@gmail.com
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
+
 ## Lời cảm ơn
 
 * [Double DQN Paper](https://arxiv.org/abs/1509.06461)
@@ -242,26 +256,49 @@ techshopprojectteam@gmail.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/username/pacman-double-dqn.svg?style=for-the-badge
+
 [contributors-url]: https://github.com/username/pacman-double-dqn/graphs/contributors
+
 [forks-shield]: https://img.shields.io/github/forks/username/pacman-double-dqn.svg?style=for-the-badge
+
 [forks-url]: https://github.com/username/pacman-double-dqn/network/members
+
 [stars-shield]: https://img.shields.io/github/stars/username/pacman-double-dqn.svg?style=for-the-badge
+
 [stars-url]: https://github.com/username/pacman-double-dqn/stargazers
+
 [issues-shield]: https://img.shields.io/github/issues/username/pacman-double-dqn.svg?style=for-the-badge
+
 [issues-url]: https://github.com/username/pacman-double-dqn/issues
+
 [license-shield]: https://img.shields.io/github/license/username/pacman-double-dqn.svg?style=for-the-badge
+
 [license-url]: https://github.com/username/pacman-double-dqn/blob/master/LICENSE
+
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+
 [linkedin-url]: https://linkedin.com/in/username
+
 [product-screenshot]: https://www.gymlibrary.dev/_images/ms_pacman.gif
+
 [Python.org]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
+
 [Python-url]: https://www.python.org/
+
 [PyTorch.org]: https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white
+
 [PyTorch-url]: https://pytorch.org/
+
 [Gymnasium.org]: https://img.shields.io/badge/Gymnasium-0081A5?style=for-the-badge&logo=OpenAI-Gym&logoColor=white
+
 [Gymnasium-url]: https://gymnasium.farama.org/
+
 [TensorBoard.org]: https://img.shields.io/badge/TensorBoard-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white
+
 [TensorBoard-url]: https://www.tensorflow.org/tensorboard
+
 [OpenCV.org]: https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white
+
 [OpenCV-url]: https://opencv.org/

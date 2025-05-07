@@ -64,7 +64,7 @@ def parse_args() -> argparse.Namespace:
 def evaluate(env: PacmanEnv, agent: DoubleDQNAgent, num_episodes: int) -> float:
     """Đánh giá agent trên một số episodes"""
     total_rewards = []
-    
+
     for _ in range(num_episodes):
         state, _ = env.reset()
         done = False
@@ -72,20 +72,20 @@ def evaluate(env: PacmanEnv, agent: DoubleDQNAgent, num_episodes: int) -> float:
         total_reward = 0
         max_steps = 50000  # Tăng số bước tối đa
         steps = 0
-        
+
         # Chơi một episode
         while not (done or truncated) and steps < max_steps:
             action = agent.select_action(state, training=False)
             next_state, reward, done, truncated, _ = env.step(action)
-            
+
             total_reward += reward
             state = next_state
             steps += 1
-            
+
         total_rewards.append(total_reward)
-    
+
     average_reward = np.mean(total_rewards)
-    return float(average_reward)
+    return float(average_reward)  # cast từ numpy.float64 sang float
 
 
 def main() -> None:
@@ -95,7 +95,7 @@ def main() -> None:
     # Đặt seed
     set_seed(args.seed)
 
-    # Create folder for saving
+    # Tạo thư mục
     timestamp = get_timestamp()
     save_dir = os.path.join(args.save_dir, timestamp)
     log_dir = os.path.join(args.log_dir, timestamp)

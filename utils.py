@@ -1,10 +1,11 @@
-import numpy as np
 import os
-import torch
-import matplotlib.pyplot as plt
 import random
 from datetime import datetime
 from typing import List
+
+import matplotlib.pyplot as plt
+import numpy as np
+import torch
 
 
 def set_seed(seed):

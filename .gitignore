@@ -16,3 +16,5 @@ logs/
 
 .idea
 introductionAI/
+
+./src/__init__.py
