@@ -10,24 +10,23 @@ class DQNModel(nn.Module):
         """Khởi tạo mạng DQN"""
         super(DQNModel, self).__init__()
 
-        # Sử dụng mạng CNN đơn giản hơn cho môi trường Pacman-v0
         self.conv = nn.Sequential(
-            nn.Conv2d(input_shape[0], 16, kernel_size=5, stride=2),
+            nn.Conv2d(input_shape[0], 32, kernel_size=8, stride=4),
             nn.ReLU(),
-            nn.Conv2d(16, 32, kernel_size=5, stride=2),
+            nn.Conv2d(32, 64, kernel_size=4, stride=2),
             nn.ReLU(),
-            nn.Conv2d(32, 32, kernel_size=3, stride=1),
+            nn.Conv2d(64, 64, kernel_size=3, stride=1),
             nn.ReLU()
         )
 
-        # Tính kích thước output của các lớp conv
+        
         conv_out_size = self._get_conv_output(input_shape)
 
         # Lớp fully connected
         self.fc = nn.Sequential(
-            nn.Linear(conv_out_size, 256),  # Giảm kích thước layer
+            nn.Linear(conv_out_size, 512),  
             nn.ReLU(),
-            nn.Linear(256, n_actions)
+            nn.Linear(512, n_actions)
         )
 
     def _get_conv_output(self, shape: tuple) -> int:
