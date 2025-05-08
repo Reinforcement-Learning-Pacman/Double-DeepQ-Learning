@@ -20,11 +20,11 @@ class DQNModel(nn.Module):
         self.fc = nn.Sequential(
             nn.Linear(self._get_conv_output(input_shape), 512), # input: feature vector from CNN
             nn.ReLU(),
-            nn.Linear(512, n_actions) # output: Q-value for each action
+            nn.Linear(512, n_actions) 
         )
 
     def _get_conv_output(self, shape: tuple) -> int:
-        batch = torch.zeros(1, *shape) # empty tensor same size with input
+        batch = torch.zeros(1, *shape) 
         conv_out = self.conv(batch)
         return int(np.prod(conv_out.size()))
 

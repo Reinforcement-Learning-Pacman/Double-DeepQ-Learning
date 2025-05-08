@@ -72,7 +72,7 @@ class PacmanEnv:
         # Lưu trữ không gian hành động và quan sát
         self.action_space = self.env.action_space
         
-        # Định nghĩa không gian quan sát mới sau khi stack frame
+        
         self.observation_space = gym.spaces.Box(
             low=0, 
             high=255,
