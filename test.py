@@ -2,6 +2,7 @@ import argparse
 import os
 import time
 from typing import List
+from configs import Config 
 
 import cv2
 import matplotlib
@@ -160,14 +161,19 @@ def main() -> None:
     n_actions = env.action_space.n
     print(f"State shape: {state_shape}, Action space: {n_actions}")
 
-    # Tạo agent
+    # Tạo agent - Fix: Thêm các tham số còn thiếu từ Config
     agent = DoubleDQNAgent(
         state_shape=state_shape,
         n_actions=n_actions,
         device=args.device,
-        epsilon_start=0.01,  # Bắt đầu với epsilon thấp vì chỉ cần exploitation
+        learning_rate=Config.LEARNING_RATE,  # Thêm learning_rate từ Config
+        gamma=Config.GAMMA,                  # Thêm gamma từ Config
+        epsilon_start=0.01,                  # Bắt đầu với epsilon thấp vì chỉ cần exploitation
         epsilon_final=0.01,
-        epsilon_decay=1  # Không cần decay vì không train
+        epsilon_decay=1,                     # Không cần decay vì không train
+        buffer_size=Config.BUFFER_SIZE,      # Thêm buffer_size từ Config
+        batch_size=Config.BATCH_SIZE,        # Thêm batch_size từ Config
+        target_update=Config.TARGET_UPDATE   # Thêm target_update từ Config
     )
 
     # Kiểm tra đường dẫn model
