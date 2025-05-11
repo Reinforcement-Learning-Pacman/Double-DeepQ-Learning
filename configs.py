@@ -18,7 +18,8 @@ class Config:
     EPSILON_DECAY = 220000               
     
     #Config buffer
-    BUFFER_SIZE = 100000                 
+    BUFFER_SIZE = 100000        # ep = final + (start - final) * e^(-step/ ep_decay)
+                                # hay ep = 0,01 + 0,9* e^(-steps/20000)         
     BATCH_SIZE = 32                     
     
     #Conf Train
