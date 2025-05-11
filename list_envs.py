@@ -11,7 +11,7 @@ all_envs = gym.envs.registry.keys()
 # hoặc 'ale_py:ALE/' (nếu được đăng ký trực tiếp bởi ale-py, cách này có vẻ đang được dùng ở đây).
 # Chúng ta tạo một list comprehension để duyệt qua tất cả các ID môi trường
 # và chỉ giữ lại những ID nào bắt đầu bằng chuỗi 'ale_py:ALE/'.
-atari_envs = [env_id for env_id in all_envs if env_id.startswith('ale_py:ALE/')]
+# atari_envs = [env_id for env_id in all_envs if env_id.startswith('ale_py:ALE/')]
 # Bạn cũng có thể kiểm tra `env_id.startswith('ALE/')` nếu bạn đang sử dụng
 # cách đăng ký môi trường Atari khác của Gymnasium.
 
@@ -21,7 +21,7 @@ print("All Atari environments (registered via ale_py):")
 # Duyệt qua danh sách các môi trường Atari đã lọc được và in ra từng ID.
 # Điều này giúp bạn xác nhận tên chính xác của môi trường Pacman (và các game Atari khác)
 # mà bạn có thể sử dụng với `gym.make()`.
-for env_id in atari_envs:
+for env_id in all_envs:
     print(f" - {env_id}")
 
 # Ghi chú thêm:
