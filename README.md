@@ -8,21 +8,7 @@
     <img src="https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/03/pac-man-thumb.jpg" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Pacman Double DQN</h3>
 
-  <p align="center">
-    Dự án huấn luyện AI chơi Pacman sử dụng Double Deep Q-Learning
-    <br />
-    <a href="https://github.com/username/pacman-double-dqn"><strong>Khám phá tài liệu »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/username/pacman-double-dqn">Xem Demo</a>
-    &middot;
-    <a href="https://github.com/username/pacman-double-dqn/issues/new?labels=bug">Báo lỗi</a>
-    &middot;
-    <a href="https://github.com/username/pacman-double-dqn/issues/new?labels=enhancement">Đề xuất tính năng</a>
-  </p>
-</div>
 
 <!-- TABLE OF CONTENTS -->
 <details>
