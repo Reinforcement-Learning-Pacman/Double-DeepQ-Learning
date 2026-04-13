@@ -100,27 +100,7 @@ Double DQN là một phiên bản cải tiến của DQN giúp giảm thiểu hi
 
 <!-- USAGE EXAMPLES -->
 
-## Cách sử dụng
 
-### Cấu trúc dự án
-
-```
-pacman-double-dqn/
-├── agent.py           # Các lớp agent Double DQN
-├── configs.py         # Cấu hình và hyperparameters
-├── env.py             # Wrapper cho môi trường Pacman
-├── list_envs.py       # Liệt kê các môi trường có sẵn
-├── main.py            # Điểm vào chính của chương trình
-├── model.py           # Định nghĩa mạng neural
-├── replay_buffer.py   # Bộ nhớ đệm replay
-├── train.py           # Mã huấn luyện
-├── test.py            # Mã kiểm thử
-├── utils.py           # Các tiện ích
-├── requirements.txt   # Danh sách các gói phụ thuộc
-├── checkpoints/       # Thư mục để lưu các model được huấn luyện
-├── logs/              # Logs cho Tensorboard
-└── videos/            # Ghi lại gameplay
-```
 
 ### Huấn luyện model
 
